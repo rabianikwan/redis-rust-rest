@@ -1,9 +1,7 @@
 use actix_web::{
     http::StatusCode
 };
-use actix_web::HttpResponse;
 use bcrypt::BcryptError;
-use serde_json::json;
 use wither::WitherError;
 use wither::mongodb::error::Error as MongoError;
 use tokio::task::JoinError;
