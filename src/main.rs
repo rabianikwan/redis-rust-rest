@@ -1,5 +1,7 @@
 mod database;
 mod config;
+mod logger;
+mod common;
 
 use std;
 use actix_web::{App, get, HttpResponse, HttpServer, Responder};

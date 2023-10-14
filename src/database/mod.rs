@@ -1,3 +1,4 @@
 pub mod mongodb {
-    pub mod config;
+    pub mod client;
+    pub mod model;
 }
