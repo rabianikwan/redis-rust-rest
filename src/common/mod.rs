@@ -1,1 +1,1 @@
-mod error;
+pub(crate) mod error_handler;

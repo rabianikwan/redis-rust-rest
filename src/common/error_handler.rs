@@ -72,7 +72,13 @@ impl Error {
             Error::Authenticate(AuthenticateError::WrongCredentials) => (StatusCode::UNAUTHORIZED, 40004),
             Error::Authenticate(AuthenticateError::InvalidToken) => (StatusCode::UNAUTHORIZED, 40005),
             Error::Authenticate(AuthenticateError::Locked) => (StatusCode::UNAUTHORIZED, 40006),
-            _ => {}
+           // 5xx errors
+            Error::Authenticate(AuthenticateError::TokenCreation) => (StatusCode::INTERNAL_SERVER_ERROR, 5001),
+            Error::Wither(_) => (StatusCode::INTERNAL_SERVER_ERROR, 5002),
+            Error::Mongo(_) => (StatusCode::INTERNAL_SERVER_ERROR, 5003),
+            Error::SerializeMongoResponse(_) => (StatusCode::INTERNAL_SERVER_ERROR, 5004),
+            Error::RunSyncTask(_) => (StatusCode::INTERNAL_SERVER_ERROR, 5005),
+            Error::HashPassword(_) => (StatusCode::INTERNAL_SERVER_ERROR, 5006),
         }
     }
 }
